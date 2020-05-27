@@ -1,4 +1,4 @@
-Building Adeptio Core
+Building Millik Core
 
 Use the autogen script to prepare the build environment.
 
@@ -8,8 +8,8 @@ Use the autogen script to prepare the build environment.
 
 Always verify the signatures and checksums.
 
-More detail explanation how to build the wallet: https://wiki.adeptio.cc/books/building-the-wallet
+More detail explanation how to build the wallet: https://wiki.Millik.cc/books/building-the-wallet
 
-See doc/build-*.md for instructions on building adeptiod,
+See doc/build-*.md for instructions on building Millikd,
 the intended-for-services, no-graphical-interface, reference
-implementation of Adeptio Core.
+implementation of Millik Core.
