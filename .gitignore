@@ -7,12 +7,12 @@ reset-files.bash
 *.tar.gz
 
 *.exe
-src/adeptio
-src/adeptiod
-src/adeptio-cli
-src/adeptio-tx
-src/test/test_adeptio
-src/qt/test/test_adeptio-qt
+src/Milliko
+src/Millikd
+src/Millik-cli
+src/Millik-tx
+src/test/test_Millik
+src/qt/test/test_Millik-qt
 
 # autoreconf
 Makefile.in
@@ -37,8 +37,8 @@ confdefs.h
 conftest.cpp
 conftest.err
 libtool
-src/config/adeptio-config.h
-src/config/adeptio-config.h.in
+src/config/Millik-config.h
+src/config/Millik-config.h.in
 src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
@@ -63,7 +63,7 @@ src/qt/test/moc*.cpp
 *.pyc
 *.o
 *.o-*
-.adeptio
+.Millik
 *.a
 *.pb.cc
 *.pb.h
@@ -81,13 +81,13 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-adeptio-qt
-adeptio-Qt.app
-ADEPTIO-Qt.app
+Millik-qt
+Millik-Qt.app
+Millik-Qt.app
 
 # Unit-tests
 Makefile.test
-adeptio-qt_test
+Millik-qt_test
 src/test/buildenv.py
 
 # Resources cpp
@@ -103,7 +103,7 @@ build
 #lcov
 *.gcno
 /*.info
-test_adeptio.coverage/
+test_Millik.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -129,6 +129,6 @@ cmake-build-debug
 
 *.deb
 adeptiod
-adeptio-cli
+Millik-cli
 
 packages/*
