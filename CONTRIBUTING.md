@@ -1,7 +1,7 @@
-Contributing to Adeptio Core
+Contributing to Millik Core
 ============================
 
-The Adeptio Core project operates an open contributor model where anyone is
+The Millik Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -57,12 +57,12 @@ the pull request affects. Valid areas as:
 
   - *Consensus* for changes to consensus critical code
   - *Docs* for changes to the documentation
-  - *Qt* for changes to adeptio-qt
+  - *Qt* for changes to Millik-qt
   - *Minting* for changes to the minting code
   - *Net* or *P2P* for changes to the peer-to-peer network code
   - *RPC/REST* for changes to the RPC or REST APIs
   - *Scripts and tools* for changes to the scripts and tools
-  - *Tests* for changes to the adeptio unit tests or QA tests
+  - *Tests* for changes to the Millik unit tests or QA tests
   - *Trivial* should **only** be used for PRs that do not change generated
     executable code. Notably, refactors (change of function arguments and code
     reorganization) and changes in behavior should **not** be marked as trivial.
@@ -157,10 +157,10 @@ where possible keep them short, un-complex and easy to verify.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the Adeptio Core project, and is not to be
+The following applies to code changes to the Millik Core project, and is not to be
 confused with overall ADE Network Protocol consensus changes.
 
-Whether a pull request is merged into Adeptio Core rests with the project merge
+Whether a pull request is merged into Millik Core rests with the project merge
 maintainers and ultimately the project lead.
 
 Maintainers will take into consideration if a patch is in line with the general
@@ -254,7 +254,7 @@ about:
 Release Policy
 --------------
 
-The project leader is the release manager for each Adeptio Core release.
+The project leader is the release manager for each Millik Core release.
 
 Copyright
 ---------
