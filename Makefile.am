@@ -1,5 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2018-2019 The Adeptio Core developers
+# Copyright (c) 2018-2019 The Millik Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -49,9 +49,9 @@ OSX_PACKAGING = $(OSX_DEPLOY_SCRIPT) $(OSX_FANCY_PLIST) $(OSX_INSTALLER_ICONS) \
   $(top_srcdir)/contrib/macdeploy/detached-sig-create.sh
 
 COVERAGE_INFO = baseline_filtered_combined.info baseline.info block_test.info \
-  leveldb_baseline.info test_adeptio_filtered.info total_coverage.info \
+  leveldb_baseline.info test_Millik_filtered.info total_coverage.info \
   baseline_filtered.info block_test_filtered.info \
-  leveldb_baseline_filtered.info test_adeptio_coverage.info test_adeptio.info
+  leveldb_baseline_filtered.info test_Millik_coverage.info test_Millik.info
 
 dist-hook:
 	-$(MAKE) -C $(top_distdir)/src/leveldb clean
@@ -181,16 +181,16 @@ leveldb_baseline_filtered.info: leveldb_baseline.info
 baseline_filtered_combined.info: leveldb_baseline_filtered.info baseline_filtered.info
 	$(LCOV) -a leveldb_baseline_filtered.info -a baseline_filtered.info -o $@
 
-test_adeptio.info: baseline_filtered_combined.info
+test_Millik.info: baseline_filtered_combined.info
 	$(MAKE) -C src/ check
-	$(LCOV) -c -d $(abs_builddir)/src -t test_adeptio -o $@
+	$(LCOV) -c -d $(abs_builddir)/src -t test_Millik -o $@
 	$(LCOV) -z -d $(abs_builddir)/src
 	$(LCOV) -z -d $(abs_builddir)/src/leveldb
 
-test_adeptio_filtered.info: test_adeptio.info
+test_Millik_filtered.info: test_Millik.info
 	$(LCOV) -r $< "/usr/include/*" -o $@
 
-block_test.info: test_adeptio_filtered.info
+block_test.info: test_Millik_filtered.info
 	$(MKDIR_P) qa/tmp
 	-@TIMEOUT=15 qa/pull-tester/run-bitcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool 0
 	$(LCOV) -c -d $(abs_builddir)/src --t BitcoinJBlockTest -o $@
@@ -200,13 +200,13 @@ block_test.info: test_adeptio_filtered.info
 block_test_filtered.info: block_test.info
 	$(LCOV) -r $< "/usr/include/*" -o $@
 
-test_adeptio_coverage.info: baseline_filtered_combined.info test_adeptio_filtered.info
-	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_adeptio_filtered.info -o $@
+test_Millik_coverage.info: baseline_filtered_combined.info test_Millik_filtered.info
+	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_Millik_filtered.info -o $@
 
-total_coverage.info:  baseline_filtered_combined.info test_adeptio_filtered.info block_test_filtered.info
-	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_adeptio_filtered.info -a block_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
+total_coverage.info:  baseline_filtered_combined.info test_Millik_filtered.info block_test_filtered.info
+	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_Millik_filtered.info -a block_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
 
-test_adeptio.coverage/.dirstamp:  test_adeptio_coverage.info
+test_Millik.coverage/.dirstamp:  test_Millik_coverage.info
 	$(GENHTML) -s $< -o $(@D)
 	@touch $@
 
@@ -214,7 +214,7 @@ total.coverage/.dirstamp: total_coverage.info
 	$(GENHTML) -s $< -o $(@D)
 	@touch $@
 
-cov: test_adeptio.coverage/.dirstamp total.coverage/.dirstamp
+cov: test_Millik.coverage/.dirstamp total.coverage/.dirstamp
 
 endif
 
@@ -227,4 +227,4 @@ CLEANFILES = $(OSX_DMG) $(BITCOIN_WIN_INSTALLER)
 .INTERMEDIATE: $(COVERAGE_INFO)
 
 clean-local:
-	rm -rf test_adeptio.coverage/ total.coverage/ $(OSX_APP)
+	rm -rf test_Millik.coverage/ total.coverage/ $(OSX_APP)
