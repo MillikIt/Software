@@ -128,7 +128,7 @@ CMakeLists.txt
 cmake-build-debug
 
 *.deb
-adeptiod
+Millikd
 Millik-cli
 
 packages/*
